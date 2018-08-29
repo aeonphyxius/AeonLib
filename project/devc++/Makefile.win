@@ -1,0 +1,49 @@
+# Project: AeonLib
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = ../../output//main.o ../../output//renderer.o ../../output//shader.o ../../output//types.o ../../output//utils.o ../../output//engine.o ../../output//config.o ../../output//debug.o
+LINKOBJ  = ../../output//main.o ../../output//renderer.o ../../output//shader.o ../../output//types.o ../../output//utils.o ../../output//engine.o ../../output//config.o ../../output//debug.o
+LIBS     = -L"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/lib32" -L"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -L"../../src/external/glew/lib/Release/Win32" -L"../../src/external/glfw/lib-mingw" ../../src/external/glew/bin/Release/Win32/glew32.dll ../../src/external/glfw/lib-mingw/glfw3.dll -lglew32  -lglfw3 -lopengl32 -lglu32 -lgdi32 -m32 -g3
+INCS     = -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"../../src/external/glew/include" -I"../../src/external/glfw/include" -I"../../src/external" -I"../../src/aeonlib/graphic" -I"../../src/aeonlib/core" -I"../../src/aeonlib"
+CXXINCS  = -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"../../src/external/glew/include" -I"../../src/external/glfw/include" -I"../../src/external" -I"../../src/aeonlib/graphic" -I"../../src/aeonlib/core" -I"../../src/aeonlib"
+BIN      = ../../output/AeonLib.exe
+CXXFLAGS = $(CXXINCS) -m32 -g3 -fpermissive -std=c++14
+CFLAGS   = $(INCS) -m32 -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../../output//main.o: ../../src/main.cpp
+	$(CPP) -c ../../src/main.cpp -o ../../output//main.o $(CXXFLAGS)
+
+../../output//renderer.o: ../../src/aeonlib/graphic/renderer.cpp
+	$(CPP) -c ../../src/aeonlib/graphic/renderer.cpp -o ../../output//renderer.o $(CXXFLAGS)
+
+../../output//shader.o: ../../src/aeonlib/graphic/shader.cpp
+	$(CPP) -c ../../src/aeonlib/graphic/shader.cpp -o ../../output//shader.o $(CXXFLAGS)
+
+../../output//types.o: ../../src/aeonlib/types/types.cpp
+	$(CPP) -c ../../src/aeonlib/types/types.cpp -o ../../output//types.o $(CXXFLAGS)
+
+../../output//utils.o: ../../src/aeonlib/utils/utils.cpp
+	$(CPP) -c ../../src/aeonlib/utils/utils.cpp -o ../../output//utils.o $(CXXFLAGS)
+
+../../output//engine.o: ../../src/aeonlib/engine.cpp
+	$(CPP) -c ../../src/aeonlib/engine.cpp -o ../../output//engine.o $(CXXFLAGS)
+
+../../output//config.o: ../../src/aeonlib/core/config.cpp
+	$(CPP) -c ../../src/aeonlib/core/config.cpp -o ../../output//config.o $(CXXFLAGS)
+
+../../output//debug.o: ../../src/aeonlib/utils/debug.cpp
+	$(CPP) -c ../../src/aeonlib/utils/debug.cpp -o ../../output//debug.o $(CXXFLAGS)
