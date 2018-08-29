@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = ../../output//main.o ../../output//renderer.o ../../output//shader.o ../../output//types.o ../../output//utils.o ../../output//engine.o ../../output//config.o ../../output//debug.o
-LINKOBJ  = ../../output//main.o ../../output//renderer.o ../../output//shader.o ../../output//types.o ../../output//utils.o ../../output//engine.o ../../output//config.o ../../output//debug.o
+OBJ      = ../../output//main.o ../../output//renderer.o ../../output//shader.o ../../output//types.o ../../output//utils.o ../../output//engine.o ../../output//config.o ../../output//debug.o ../../output//soundmanager.o ../../output//sound.o ../../output//music.o
+LINKOBJ  = ../../output//main.o ../../output//renderer.o ../../output//shader.o ../../output//types.o ../../output//utils.o ../../output//engine.o ../../output//config.o ../../output//debug.o ../../output//soundmanager.o ../../output//sound.o ../../output//music.o
 LIBS     = -L"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/lib32" -L"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -L"../../src/external/glew/lib/Release/Win32" -L"../../src/external/glfw/lib-mingw" ../../src/external/glew/bin/Release/Win32/glew32.dll ../../src/external/glfw/lib-mingw/glfw3.dll -lglew32  -lglfw3 -lopengl32 -lglu32 -lgdi32 -m32 -g3
 INCS     = -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"../../src/external/glew/include" -I"../../src/external/glfw/include" -I"../../src/external" -I"../../src/aeonlib/graphic" -I"../../src/aeonlib/core" -I"../../src/aeonlib"
 CXXINCS  = -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Apps/OrwellDev-CppPortable/App/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"../../src/external/glew/include" -I"../../src/external/glfw/include" -I"../../src/external" -I"../../src/aeonlib/graphic" -I"../../src/aeonlib/core" -I"../../src/aeonlib"
@@ -47,3 +47,12 @@ $(BIN): $(OBJ)
 
 ../../output//debug.o: ../../src/aeonlib/utils/debug.cpp
 	$(CPP) -c ../../src/aeonlib/utils/debug.cpp -o ../../output//debug.o $(CXXFLAGS)
+
+../../output//soundmanager.o: ../../src/aeonlib/audio/soundmanager.cpp
+	$(CPP) -c ../../src/aeonlib/audio/soundmanager.cpp -o ../../output//soundmanager.o $(CXXFLAGS)
+
+../../output//sound.o: ../../src/aeonlib/audio/sound.cpp
+	$(CPP) -c ../../src/aeonlib/audio/sound.cpp -o ../../output//sound.o $(CXXFLAGS)
+
+../../output//music.o: ../../src/aeonlib/audio/music.cpp
+	$(CPP) -c ../../src/aeonlib/audio/music.cpp -o ../../output//music.o $(CXXFLAGS)
