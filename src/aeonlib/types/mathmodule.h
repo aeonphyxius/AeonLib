@@ -15,7 +15,7 @@
 #define RMDEF RMEXTERN
 #endif
 
-
+/*
 // Returns identity matrix
 RMDEF Matrix MatrixIdentity(void)
 {
@@ -26,5 +26,5 @@ RMDEF Matrix MatrixIdentity(void)
 
 	return result;
 }
-
+*/
 #endif  // MATH_MODULE_H_

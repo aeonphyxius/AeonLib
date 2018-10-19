@@ -51,4 +51,4 @@ namespace AeonLib
       //  Mix_Music* m_MusicInternal;
     };
 }
-#endif /* defined( _SOUND_H )*/
+#endif /* defined( _MUSIC_H )*/
