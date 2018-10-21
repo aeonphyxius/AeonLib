@@ -50,4 +50,9 @@ THE SOFTWARE.
 
 using namespace std;
 
+#define NON_COPYABLE_CLASS(C) private: \
+C( const C& ) = delete; \
+C& operator=( const C& ) = delete
+
+
 #endif /* defined( _PRECOMPILED_H )*/

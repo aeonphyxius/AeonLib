@@ -1,7 +1,7 @@
 // Include standard headers
 #include <stdio.h>
 #include <stdlib.h>
-#include "../aeonlib/engine.h"
+#include "engine.h"
 #include <memory>
 
 using namespace AeonLib;

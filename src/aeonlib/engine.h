@@ -27,8 +27,8 @@ THE SOFTWARE.
 
 #include <assert.h>
 #include <string>
-#include <renderer.h>
-#include <config.h>
+#include "graphic/renderer.h"
+#include "core/config.h"
 
 namespace AeonLib
 {

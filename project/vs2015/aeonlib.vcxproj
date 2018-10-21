@@ -75,12 +75,18 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)../../output/$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)../../output/$(Platform)\$(Configuration)\</IntDir>
+    <LibraryPath>$(SolutionDir)../../src/external/glfw/lib-vc2015_x64;$(SolutionDir)../../src/external/glew/lib/Release/x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)../../output/$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)../../output/$(Platform)\$(Configuration)\</IntDir>
+    <LibraryPath>$(SolutionDir)../../src/external/glfw/lib-vc2015_x64;$(SolutionDir)../../src/external/glew/lib/Release/x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -102,13 +108,19 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../src/external/glew/include;$(SolutionDir)../../src/external/glfw/include;$(SolutionDir)../../src/external/jsoncpp/include;$(SolutionDir)../../src/aeonlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /s /Y "$(SolutionDir)..\..\src\external\glew\bin\Release\x64\glew32.dll" "$(OutDir)"
+xcopy /s /Y "$(SolutionDir)..\..\src\external\glfw\lib-vc2015_x64\glfw3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -136,17 +148,50 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../src/external/glew/include;$(SolutionDir)../../src/external/glfw/include;$(SolutionDir)../../src/external/jsoncpp/include;$(SolutionDir)../../src/aeonlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /s /Y "$(SolutionDir)..\..\src\external\glew\bin\Release\x64\glew32.dll" "$(OutDir)"
+xcopy /s /Y "$(SolutionDir)..\..\src\external\glfw\lib-vc2015_x64\glfw3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\aeonlib\audio\music.h" />
+    <ClInclude Include="..\..\src\aeonlib\audio\sound.h" />
+    <ClInclude Include="..\..\src\aeonlib\audio\soundmanager.h" />
+    <ClInclude Include="..\..\src\aeonlib\core\config.h" />
+    <ClInclude Include="..\..\src\aeonlib\engine.h" />
+    <ClInclude Include="..\..\src\aeonlib\graphic\fragmentShader.h" />
+    <ClInclude Include="..\..\src\aeonlib\graphic\renderer.h" />
+    <ClInclude Include="..\..\src\aeonlib\graphic\shader.h" />
+    <ClInclude Include="..\..\src\aeonlib\graphic\vertexShader.h" />
+    <ClInclude Include="..\..\src\aeonlib\precompiled.h" />
+    <ClInclude Include="..\..\src\aeonlib\types\mathmodule.h" />
+    <ClInclude Include="..\..\src\aeonlib\types\types.h" />
+    <ClInclude Include="..\..\src\aeonlib\utils\debug.h" />
+    <ClInclude Include="..\..\src\aeonlib\utils\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\aeonlib\audio\music.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\audio\sound.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\audio\soundmanager.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\core\config.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\engine.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\graphic\renderer.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\graphic\shader.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\types\types.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\utils\debug.cpp" />
+    <ClCompile Include="..\..\src\aeonlib\utils\utils.cpp" />
+    <ClCompile Include="..\..\src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
