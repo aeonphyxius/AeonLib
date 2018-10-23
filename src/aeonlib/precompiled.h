@@ -41,9 +41,8 @@ THE SOFTWARE.
 //Project includes
 #include <types/mathmodule.h>
 #include <utils/utils.h>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
+#include "GL/glew.h"
+#include "GLFW/glfw3.h"
 #include "types/types.h"
 #include "utils/utils.h"
 #include "utils/debug.h"

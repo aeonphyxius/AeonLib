@@ -87,6 +87,9 @@
     <ClInclude Include="..\..\src\aeonlib\engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\aeonlib\core\Signal.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\aeonlib\audio\sound.cpp">
@@ -115,9 +118,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\aeonlib\utils\utils.cpp">
       <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\main.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\aeonlib\engine.cpp">
       <Filter>Source Files</Filter>
