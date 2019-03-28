@@ -4,7 +4,7 @@
 
 namespace AeonLib
 {
-    Engine* Engine::s_Instance = nullptr;
+    Engine* s_Instance = nullptr;
 
 
 	Engine::Engine(const std::string& configFileName)

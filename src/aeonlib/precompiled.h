@@ -33,8 +33,8 @@ THE SOFTWARE.
 #include <iostream>
 #include <sstream>      // std::stringstream
 #include <string>      // std::stringstream
-#include <tchar.h>
-#include <windows.h>
+//#include <tchar.h>
+//#include <windows.h>
 #include <math.h>
 #include <memory>
 
